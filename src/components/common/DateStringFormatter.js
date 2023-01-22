@@ -1,6 +1,4 @@
-<!--
-/*
-*  _____ _______         _                      _
+/*  _____ _______         _                      _
 * |_   _|__   __|       | |                    | |
 *   | |    | |_ __   ___| |___      _____  _ __| | __  ___ ____
 *   | |    | | '_ \ / _ \ __\ \ /\ / / _ \| '__| |/ / / __|_  /
@@ -21,17 +19,27 @@
 * našich členů. Je určen pouze pro osobní užití a nesmí být šířen.
 * Více informací na http://www.itnetwork.cz/licence
 */
--->
 
-<template>
-<div>
-      
-</div>
-</template>
+export const DateStringFormatter = (str, locale = false) => {
+    const d = new Date(str);
 
-<script>
-export default {
-}
-</script>
+    if (locale) {
+        return d.toLocaleDateString('cs-CZ', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+        });
+    }
 
-<style></style>
+    const year = d.getFullYear();
+    const month = '' + (d.getMonth() + 1);
+    const day = '' + d.getDate();
+
+    return [
+        year,
+        (month.length < 2) ? ('0' + month) : month,
+        (day.length < 2) ? ('0' + day) : day
+    ].join('-');
+};
+
+export default DateStringFormatter;

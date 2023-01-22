@@ -1,9 +1,9 @@
 <template>
-  <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <ul class="navbar-nav mr-auto">
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark px-2 d-md-inline-flex py-2">
+      <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <router-link to="/movies" class="nav-link">Movie</router-link>
+          <router-link to="/movie" class="nav-link">Movie</router-link>
         </li>
         <li class="nav-item">
           <router-link to="/people" class="nav-link">People</router-link>
@@ -15,9 +15,13 @@
   </div>
 </template>
 <script>
+
 export default {
   name: "App",
-  components: {},
+  components: {
+
+
+  },
 };
 </script>
 
@@ -29,5 +33,14 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  .navbar{
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+
+
+  }
 }
 </style>
