@@ -93,16 +93,20 @@ export default {
       }
     },
 
-    deletePerson(deleteId,role){
+    deletePerson (deleteId,role) {
       this.deleteId=deleteId;
       this.role=role;
-      ApiDelete(`/api/${this.role}s/${this.deleteId}`).then((data)=>{
+      console.log('id',this.deleteId);
+      console.log('role',this.role);
+      ApiDelete(`/api/${role}s/${this.deleteId}`).
+      then(
+      ApiGet(`/api/${this.role}s`).then((data)=>{
        if (this.role==="actor"){
           this.actors=data;
        }else{
         this.directors=data;
        };
-      })
+      }));
     }
   },
 };
