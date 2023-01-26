@@ -3,9 +3,13 @@
 function sendApiRequest(request, options) {
     return (fetch(request, options).then(response => {
         if (!response.ok) {
+            console.log('response',response);
             throw response;
+            
         }
         return response.json();
+        const error = (data && data.message) || response.status;
+          return Promise.reject(error);
     }));
 }
 
@@ -15,6 +19,9 @@ function createRequestOptions(method = 'get', body = {}) {
     if (['post', 'put'].includes(options.method)) {
         options['headers'] = {'Content-Type': 'application/json'};
         options['body'] = JSON.stringify(body);
+    }
+    if(['delete'].includes(options.method)){
+        options['headers']={'Content-Type',Content-Length,Server,Date,access-control-allow-methods,access-control-allow-origin};
     }
 
     return options;

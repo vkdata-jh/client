@@ -38,17 +38,10 @@ export default {
   props: ["people", "label", "role", "reloadData","deletePerson"],
   data() {
     return {
-      id: '',
-      role:''
+     
     }
   },
 
-  methods: {
-    // deletePerson(e) {
-    //   e.preventDefault();
-    //   console.log('this.id',e);
-    // }
-  },
 };
 </script>
 
